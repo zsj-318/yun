@@ -1,6 +1,6 @@
-package generator.mapper;
+package com.zsj.yupicturebackend.mapper;
 
-import generator.domain.User;
+import com.zsj.yupicturebackend.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
