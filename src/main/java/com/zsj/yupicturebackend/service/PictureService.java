@@ -7,9 +7,11 @@ import com.zsj.yupicturebackend.model.dto.picture.*;
 import com.zsj.yupicturebackend.model.entity.Picture;
 import com.zsj.yupicturebackend.model.entity.User;
 import com.zsj.yupicturebackend.model.vo.PictureVO;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
 * @author 86157
@@ -110,4 +112,22 @@ public interface PictureService extends IService<Picture> {
      */
     void checkPictureAuth(User loginUser,Picture picture);
 
+    /**
+     * 按照颜色相似度查询图片
+     *
+     * @param spaceId spaceId
+     * @param picColor 颜色
+     * @param loginUser 登录的用户
+     * @return 图片 vo 结合
+     */
+    List<PictureVO> searchPictureByColor(Long spaceId, String picColor, User loginUser);
+
+
+    /**
+     * 批量编辑图片
+     *
+     * @param pictureEditByBatchRequest
+     * @param loginUser
+     */
+    void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser);
 }
